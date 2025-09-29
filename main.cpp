@@ -10,8 +10,8 @@ class Color{
 
 
     //constructor
-    //destructor
-    //setters
+    Color(int r, int b, int g){setR(r);setB(b);setG(g);}
+    //a function to clamp the incoming values to range 0-255
     int valueClamp(int n){
         if(n>255) //upper bound.
             return 255;
@@ -25,9 +25,9 @@ class Color{
     void setG(int g){this->g=valueClamp(g)};
     void setB(int b){this->b=valueClamp(b)};
     //getters
-    void getR(int r){};
-    void getG(int g){};
-    void getB(int b){};
+    int getR(){return r;};
+    int getG(){return g;};
+    int getB(){return b;};
 };
 
 int main(){
