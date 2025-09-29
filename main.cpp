@@ -33,22 +33,24 @@ class Color{
     int getB(){return b;};
 //print self
     void print(){
-        string bar = "-------";
-        int charWidth = 10;
-        cout<<setw(charWidth)<<"RBG Color: R"<<setw(charWidth)<<getR()<<setw(charWidth)<<"G"<<setw(charWidth)<<getG()<<setw(charWidth)<<"B"<<setw(charWidth)<<getB()<<endl;
+        string bar = "-----------------------------------";
+        int charWidth = 5;
+        cout<<setw(charWidth)<<"R"<<setw(charWidth)<<getR()<<setw(charWidth)<<"G"<<setw(charWidth)<<getG()<<setw(charWidth)<<"B"<<setw(charWidth)<<getB()<<endl;
+        cout<<bar<<endl;
     }
 };
 
 int main(){
     srand(time(nullptr));
+    //array of Color Objects
     Color *colors[SIZE];
-
     for(int i=0;i<SIZE;i++){
-        Color *C = new Color(rand()%256,rand()%256,rand()%256);
+        Color *C = new Color(rand()%256,rand()%256,rand()%256); //populate w/ rand values
         colors[i]=C;
     }
     for(Color *C : colors){
         C->print();
     }
+    delete[] colors;
     return 0;
 }
