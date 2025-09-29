@@ -24,9 +24,9 @@ class Color{
         return n;
     }
 //setters
-    void setR(int r){this->r=valueClamp(r)};
-    void setG(int g){this->g=valueClamp(g)};
-    void setB(int b){this->b=valueClamp(b)};
+    void setR(int r){this->r=valueClamp(r);};
+    void setG(int g){this->g=valueClamp(g);};
+    void setB(int b){this->b=valueClamp(b);};
 //getters
     int getR(){return r;};
     int getG(){return g;};
@@ -35,27 +35,20 @@ class Color{
     void print(){
         string bar = "-------";
         int charWidth = 10;
-        cout<<setw(charWidth)<<"Color#"<<setw(charWidth)<<"R value"<<setw(charWidth)<<"G value"<<setw(charWidth)<<"B value"<<endl;
-        cout<<setw(charWidth)<<bar<<setw(charWidth)<<bar<<setw(charWidth)<<bar<<setw(charWidth)<<bar<<endl;
-        for(int i =0;i<v.size();i++){
-            cout<<setw(charWidth)<<i+1;
-            cout<<setw(charWidth)<<v[i].r;
-            cout<<setw(charWidth)<<v[i].g;
-            cout<<setw(charWidth)<<v[i].b;
-            cout<<endl;
-        }
+        cout<<setw(charWidth)<<"RBG Color: R"<<setw(charWidth)<<getR()<<setw(charWidth)<<"G"<<setw(charWidth)<<getG()<<setw(charWidth)<<"B"<<setw(charWidth)<<getB()<<endl;
     }
 };
 
 int main(){
     srand(time(nullptr));
-    Color colors[SIZE];
+    Color *colors[SIZE];
 
     for(int i=0;i<SIZE;i++){
         Color *C = new Color(rand()%256,rand()%256,rand()%256);
         colors[i]=C;
     }
-
-    //print here
+    for(Color *C : colors){
+        C->print();
+    }
     return 0;
 }
