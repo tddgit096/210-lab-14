@@ -4,12 +4,15 @@
 #include <vector>
 using namespace std;
 
+int SIZE = 10;
+
 class Color{
 //properties
     int r;
     int g;
     int b;
 
+    public:
 //constructor
     Color(int r, int b, int g){setR(r);setB(b);setG(g);}
     //a function to clamp the incoming values to range 0-255
@@ -20,7 +23,6 @@ class Color{
             return 0;
         return n;
     }
-    public:
 //setters
     void setR(int r){this->r=valueClamp(r)};
     void setG(int g){this->g=valueClamp(g)};
@@ -47,10 +49,11 @@ class Color{
 
 int main(){
     srand(time(nullptr));
-    int randSize = (rand()%6)+5; //rand num from 5-10
-    vector<Color> colors;
-    for(int i=0;i<randSize;i++){
-        colors.push_back(/**/);
+    Color colors[SIZE];
+
+    for(int i=0;i<SIZE;i++){
+        Color *C = new Color(rand()%256,rand()%256,rand()%256);
+        colors[i]=C;
     }
 
     //print here
